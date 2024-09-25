@@ -7,6 +7,6 @@ public:
             if(i + nums[i] >= goal)
                 goal = i;
         }
-        return (!goal) ? true : false; 
+        return !goal; 
     }
 };

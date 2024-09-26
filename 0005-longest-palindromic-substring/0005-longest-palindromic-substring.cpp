@@ -16,7 +16,7 @@ public:
     }
 
     void recPalindrome(string &s,int i,int j,pair<int,int> &p,vector<vector<int>> &dp){
-        if(j <= i || dp[i][j] == 1) return;
+        if(p.second - p.first > j-i || j <= i || dp[i][j] == 1) return;
         if(dp[i][j] == -1) palindrome(s,i,j,p,dp);
         if(dp[i+1][j] == -1) recPalindrome(s,i+1,j,p,dp);
         if(dp[i][j-1] == -1) recPalindrome(s,i,j-1,p,dp);

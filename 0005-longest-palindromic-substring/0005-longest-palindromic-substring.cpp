@@ -1,8 +1,6 @@
 class Solution {
 public:
 
-    vector<vector<int>> dp;
-
     bool palindrome(string &s,int l,int r,pair<int,int> &a,vector<vector<int>> &dp){
         int n = r-l+1;
         for(int i = 0;i < (n/2);i++){
@@ -18,7 +16,7 @@ public:
     }
 
     void recPalindrome(string &s,int i,int j,pair<int,int> &p,vector<vector<int>> &dp){
-        if(j <= i) return;
+        if(j <= i || dp[i][j] == 1) return;
         if(dp[i][j] == -1) palindrome(s,i,j,p,dp);
         if(dp[i+1][j] == -1) recPalindrome(s,i+1,j,p,dp);
         if(dp[i][j-1] == -1) recPalindrome(s,i,j-1,p,dp);

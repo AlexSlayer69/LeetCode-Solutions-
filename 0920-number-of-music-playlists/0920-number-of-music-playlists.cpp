@@ -11,6 +11,6 @@ public:
                     dp[i][j] += dp[i-1][j] * (j-k) % 1000000007; 
             }
         }
-        return (int) dp[goal][n];
+        return (int) dp[goal][n] % 1000000007;
     }
 };

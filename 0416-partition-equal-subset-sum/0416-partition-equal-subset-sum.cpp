@@ -7,10 +7,8 @@ public:
         if((total%2) == 1 || n == 1) return false;
         vector<vector<bool>> dp (n, vector<bool>((total/2) +1,false));
         
-        for(int i = 0;i<n;i++)
-            dp[i][0] = true;
-        for(int j = 1;j<=total/2;j++)
-            dp[0][j] = ((j == nums[0]) ? true : false); 
+        for(int i = 0;i<n;i++) dp[i][0] = true;
+        if(nums[0] <= target/2) dp[0][nums[0]] = true;
 
         for(int i = 1;i<n;i++){
             for(int j = 1; j <= total/2;j++){

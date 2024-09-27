@@ -17,9 +17,10 @@ public:
                 if(dp[i-1][j]) dp[i][j] = true; 
                 else if(j >= nums[i] && dp[i-1][j-nums[i]]) dp[i][j] = true;
                 else dp[i][j] = false;
+                if(j == total/2 && dp[i][j]) return true;
             }
         }
 
-        return (dp[n-1][total/2]);
+        return false;
     }
 };

@@ -12,11 +12,11 @@ public:
     }
 
     bool isHappy(int n) {
-        unordered_map<int,bool> mp;
+        unordered_set<int> s;
         int a = sq(n);
         while(a != 1){
-            if(mp.find(a) != mp.end()) return false;
-            mp[a] = true;    
+            if(s.find(a) != s.end()) return false;
+            s.insert(a);   
             a = sq(a);
         }
         return true;

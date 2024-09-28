@@ -4,8 +4,8 @@ public:
         int n1 = word1.size();
         int n2 = word2.size();
         if(n1 != n2) return false;
-        map<char,int> m1;
-        map<char,int> m2;
+        unordered_map<char,int> m1;
+        unordered_map<char,int> m2;
         vector<int> v1;
         vector<int> v2; 
         for(auto it : word1) m1[it]++;

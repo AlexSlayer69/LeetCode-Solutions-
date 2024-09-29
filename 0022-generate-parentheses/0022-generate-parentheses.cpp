@@ -7,16 +7,12 @@ public:
             v.push_back(s);
             return;
         }
-        if(o == n){   
-            s += ')';               
-            solve(o,c+1,s,v,n);
+        if(o == n){         
+            solve(o,c+1,s + ')',v,n);
             return;
         }
-        string s2 = s;
-        s2 += '(';
-        s += ')'; 
-        solve(o+1,c,s2,v,n);
-        solve(o,c+1,s,v,n);
+        solve(o+1,c,s + '(',v,n);
+        solve(o,c+1,s+')',v,n);
         return;
     }
 

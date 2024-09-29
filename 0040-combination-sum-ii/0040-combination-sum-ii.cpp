@@ -10,10 +10,11 @@ public:
             v.insert(sum);
             return;
         }
-        solve(i+1,t,candidates,sum,v);
         sum.push_back(candidates[i]);
         solve(i+1,t-candidates[i],candidates,sum,v);
         sum.pop_back();
+        while(i < candidates.size()-1 && candidates[i] == candidates[i+1]) i++;
+        solve(i+1,t,candidates,sum,v);
         return;
     } 
 

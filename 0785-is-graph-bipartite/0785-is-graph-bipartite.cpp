@@ -2,34 +2,25 @@ class Solution {
 public:
     bool isBipartite(vector<vector<int>>& graph) {
         int n = graph.size(); 
-        vector<int> vis(n,-1);
-        vis[0] = 0;
-        for(int j = 0;j<graph[0].size();j++) vis[graph[0][j]] = 1;             
-        
+        vector<int> gp(n,-1);         
         for(int i = 0;i<n;i++){
-            if(vis[i] == -1){
-                vis[i] = 0;
-                for(int j = 0;j<graph[i].size();j++){
-                    if(vis[graph[i][j]] == 0) {
-                        vis[i] = 1;
-                        break;
+            if(gp[i] != -1) continue;
+            else{
+                gp[i] = 0;
+                queue<int> q;
+                vector<bool> vis(n,false);
+                q.push(i);
+                vis[i] = true;
+                while(!q.empty()){
+                    int l = q.size();
+                    int m = q.front();
+                    vis[m] = true;
+                    q.pop();
+                    for(int j = 0;j<graph[m].size();j++){
+                        if(gp[graph[m][j]] == gp[m]) return false;
+                        if(gp[graph[m][j]] == -1) gp[graph[m][j]] = 1-gp[m];
+                        if(!vis[graph[m][j]]) q.push(graph[m][j]);
                     }
-                    if(vis[graph[i][j]] == 1) {
-                        vis[i] = 0;
-                        break;
-                    }
-                }
-            }
-            if(vis[i] == 0){
-                for(int j = 0;j<graph[i].size();j++){
-                    if(vis[graph[i][j]] == 0) return false;
-                    if(vis[graph[i][j]] == -1) vis[graph[i][j]] = 1;
-                }
-            }
-            if(vis[i] == 1){
-                for(int j = 0;j<graph[i].size();j++){
-                   if(vis[graph[i][j]] == 1) return false;
-                   if(vis[graph[i][j]] == -1) vis[graph[i][j]] = 0;
                 }
             }
         }

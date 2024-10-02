@@ -10,20 +10,13 @@ public:
     }
 
     int ladderLength(string beginWord, string endWord, vector<string>& wordList) {
-        unordered_map<string,vector<string>> graph;
+        
+        unordered_set<string> st(wordList.begin(),wordList.end());
         unordered_map<string,bool> vis;
+        st.insert(beginWord);
 
-        if(find(wordList.begin(),wordList.end(),beginWord) == wordList.end())
-            wordList.push_back(beginWord);
         if(find(wordList.begin(),wordList.end(),endWord) == wordList.end()) return 0;
         
-        for(auto it: wordList){
-            for(auto it2 : wordList){
-                if(isRel(it,it2))
-                    graph[it].push_back(it2);
-            }
-        }
-
         for(auto it : wordList){
             vis[it] = false;
         }
@@ -38,8 +31,16 @@ public:
                 if(node == endWord) return level;
                 q.pop();
                 vis[node] = true;
-                for(int i = 0;i<graph[node].size();i++){
-                    if(!vis[graph[node][i]]) q.push(graph[node][i]);
+                for(int i=0;i<node.size();i++){
+                    char a = node[i];
+                    for(char b='a';b<='z';b++)
+                    {
+                        node[i]=b;
+                        if(st.find(node) != st.end()){
+                            if(!vis[node]) q.push(node);
+                        }
+                    }
+                    node[i]=a;
                 }
             }
             level++;

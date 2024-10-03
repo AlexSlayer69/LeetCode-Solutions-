@@ -6,9 +6,9 @@ public:
 
         int mx = 0;
 
-        for (auto &p1 : points) {
+        for (auto p1 : points) {
             unordered_map<double, int> mp;
-            for (auto &p2: points) {
+            for (auto p2: points) {
                 double slope = INT_MIN;
                 if (p1 == p2) continue;
                 if (p1[0] != p2[0])      

@@ -1,12 +1,11 @@
 class Solution {
 public:
     bool canConstruct(string ransomNote, string magazine) {
-        unordered_map<char,int> mp;
-        for(int i =0;i<magazine.size();i++) mp[magazine[i]]++;
+        vector<int> mp(26,0);
+        for(int i =0;i<magazine.size();i++) mp[magazine[i]-'a']++;
         for(int i = 0;i< ransomNote.size();i++){
-           if(mp.find(ransomNote[i]) == mp.end()) return false;
-           mp[ransomNote[i]]--;
-           if(mp[ransomNote[i]] < 0) return false;
+           mp[ransomNote[i] - 'a']--;
+           if(mp[ransomNote[i] - 'a'] < 0) return false;
         }
         return true;
     }

@@ -8,7 +8,7 @@ public:
         vector<bool> ans(n,false);
         
         for(int i = 0;i < n;i++){
-            vector<bool> vis(n,false);
+            vector<bool> vis(numCourses,false);
             queue<int> q;
             q.push(queries[i][1]);
 

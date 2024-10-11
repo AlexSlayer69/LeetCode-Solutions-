@@ -16,7 +16,7 @@ public:
             else if (sc == 2) answer[i] = "Silver Medal";
             else if(sc == 3) answer[i] = "Bronze Medal";
             else{
-                answer[i] = (sc + '0');
+                answer[i] = to_string(sc);
             }
             sc++;
         }

@@ -3,15 +3,12 @@ public:
     bool containsNearbyDuplicate(vector<int>& nums, int k) {
         int n = nums.size();
         if(n == 0 || n == 1 || k == 0) return false;
-        int i =0,j = 1;
-        for(j = 1;j < n;j++){
-            if(j - i == k){
-                while(i != j){
-                    if(nums[i] == nums[j]) return true;
-                    i++;
-                }
+        for(int i = 0;i < n;i++){
+            int j = i+1;
+            while(j <= i + k && j < n){
+                if(nums[i] == nums[j]) return true;
+                j++;
             }
-            else if(nums[i] == nums[j]) return true;
         }
         return false;
     }

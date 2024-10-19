@@ -1,16 +1,10 @@
 class Solution {
 public:
     vector<int> constructRectangle(int area) {
-        int min = area-1;
-        vector<int> ans = {area,1};
-        for(int i = 1;i<=area/2;i++){
-            if(area%i == 0) {
-                if(abs(i - area/i) < min){
-                    min = abs(i - area/i);
-                    ans = {area/i,i};
-                }
-            }
-        }
-        return ans;
+        int i = 0;
+        for(i = floor(sqrt(area));area%i != 0;i++);
+        vector<int> v = {i,area/i};
+        sort(v.begin(),v.end(),greater<int>());
+        return v;
     }
 };

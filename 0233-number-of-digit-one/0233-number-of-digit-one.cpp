@@ -12,8 +12,7 @@ public:
         n = digit;
         int p = pow(10,ndigits-1);
         int fd  = n/p;
-        int ans = countDigitOne(n%p) + fd*countDigitOne(p -1);
-        cout << ans;
+        int ans = countDigitOne(n%p) + fd*countDigitOne(p - 1);
         if(fd == 1) ans += n%p+1;
         else ans += p;  
         return ans;

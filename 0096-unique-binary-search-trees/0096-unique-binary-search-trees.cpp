@@ -10,7 +10,6 @@ public:
                 dp[i] += dp[j]*dp[i-j-1];
             }
         }
-        for(auto it : dp) cout << it << endl;
         return dp[n];
     }
 };                                                                                           

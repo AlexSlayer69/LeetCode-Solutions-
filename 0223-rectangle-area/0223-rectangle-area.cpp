@@ -11,12 +11,23 @@ public:
             x_int = true;
         else if(range1x.second >= range2x.second && range1x.first < range2x.second) 
             x_int = true;
+        else if(range2x.first <= range1x.first && range2x.second > range1x.first) 
+            x_int = true;
+        else if(range2x.second >= range1x.second && range2x.first < range1x.second) 
+            x_int = true;    
 
         bool y_int = false;
         if(range1y.first <= range2y.first && range1y.second > range2y.first) 
             y_int = true;
         else if(range1y.second >= range2y.second && range1y.first < range2y.second) 
             y_int = true;
+        else if(range2y.first <= range1y.first && range2y.second > range1y.first) 
+            y_int = true;
+        else if(range2y.second >= range1y.second && range2y.first < range1y.second) 
+            y_int = true;
+
+
+        //cout << x_int << " " << y_int << endl;
 
         if(!(x_int && y_int)){
             return (abs(range1x.first - range1x.second) * abs(range1y.first - range1y.second))

@@ -25,9 +25,7 @@ public:
                 st.pop();
                 curr = 0;
             }
-            cout << "c: " << c << ", res: " << res << ", num: " << curr << ", sign: " << sign << endl;  
         }
-        cout  << "res: " << res << ", num: " << curr << ", sign: " << sign << endl;  
         return res + sign*curr;
     }
 };

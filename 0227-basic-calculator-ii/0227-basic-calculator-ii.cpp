@@ -9,8 +9,9 @@ public:
         }    
         stack<int> st;
         for(int i =0;i < s.length();i++){
-            string num = "";
+            cout << s << " " << i << endl;
             if(isdigit(s[i])){
+                string num = "";
                 num += s[i];
                 s.erase(s.begin() + i);
                 while(isdigit(s[i])){
@@ -21,23 +22,21 @@ public:
             }
             if(s[i] == '/' || s[i] == '*'){
                 char op = s[i];
-                string temp2 = "";
+                s.erase(s.begin()+i);
                 int prev = st.top();
                 st.pop();
-                int j = i + 1;
+                int j = i;
+                string temp2 = "";
                 while(isdigit(s[j])){
                     temp2 += s[j];
                     s.erase(s.begin()+j);
                 }
                 int next = stoi(temp2);
-                string temp3;
-                if(op == '/') temp3 = to_string(prev/next);
-                else if(op == '*') temp3 = to_string(prev*next);
-                s.erase(s.begin() + i);
-                reverse(temp3.begin(),temp3.end());
-                for(auto it : temp3)s.insert(s.begin() + i,it);
+                if(op == '/') st.push(prev/next);
+                else st.push(prev*next);
                 i--;
             }
+            cout << s << " " << i << endl;
         }
         stack<int> st2;
         while(!st.empty()){

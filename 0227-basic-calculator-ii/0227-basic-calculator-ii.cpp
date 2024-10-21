@@ -41,7 +41,6 @@ public:
             st2.push(st.top());
             st.pop();
         }
-        cout << s << endl;
         for(int i = 0;i < s.length();i++){
             if(s[i] == '-' || s[i] == '+'){
                 char op = s[i];

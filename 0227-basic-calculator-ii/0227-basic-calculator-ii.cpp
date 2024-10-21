@@ -9,7 +9,6 @@ public:
         }    
         stack<int> st;
         for(int i =0;i < s.length();i++){
-            cout << s << " " << i << endl;
             if(isdigit(s[i])){
                 string num = "";
                 num += s[i];
@@ -36,7 +35,6 @@ public:
                 else st.push(prev*next);
                 i--;
             }
-            cout << s << " " << i << endl;
         }
         stack<int> st2;
         while(!st.empty()){

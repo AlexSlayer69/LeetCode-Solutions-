@@ -2,7 +2,7 @@ class Solution {
 public:
     vector<int> diffWaysToCompute(string s) {
         int n = s.size();
-        if(n == 1 || n==2) return vector<int>(1,stoi(s));
+        if(n == 1 || n == 2) return vector<int>(1,stoi(s));
         vector<int> ans;
         for(int i =0;i<n;i++){
             if(s[i] == '-' || s[i] == '+' || s[i] == '*'){

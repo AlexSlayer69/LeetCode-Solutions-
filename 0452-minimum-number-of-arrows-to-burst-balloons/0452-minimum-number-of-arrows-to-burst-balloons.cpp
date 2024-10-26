@@ -1,13 +1,14 @@
 class Solution {
 public:
     static bool compare(vector<int> a, vector<int> b){
-        if(a[0] < b[0]){
-            return true;
-        }
-        else if(a[0] > b[0]) return false;
-        else{
-            return (a[1] <= b[1]) ? true : false;
-        }
+        // if(a[0] < b[0]){
+        //     return true;
+        // }
+        // else if(a[0] > b[0]) return false;
+        // else{
+        //     return (a[1] <= b[1]) ? true : false;
+        // }
+        return (a[1] < b[1]);
     }
 
     int findMinArrowShots(vector<vector<int>>& points) {

@@ -15,7 +15,6 @@ public:
         int cnt = 1;
         int end = points[0][1];
         int tmp = 1;
-        //for(auto it : points) cout << it[0] << " " << it[1] << endl;
         for(int i = 1;i<points.size();i++){
             if(points[i][0] > end){
                 cnt++;

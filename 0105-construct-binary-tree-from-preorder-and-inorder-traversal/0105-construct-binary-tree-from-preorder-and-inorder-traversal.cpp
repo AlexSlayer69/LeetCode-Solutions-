@@ -23,19 +23,6 @@ public:
         vector<int> li = vector<int>(inorder.begin(),inorder.begin()+i);
         vector<int> ri = vector<int>(inorder.begin()+i+1,inorder.end());
 
-        // cout << "lp" << endl;
-        // for(auto it : lp) cout << it << " ";
-        // cout << endl;
-        // cout << "rp" << endl;
-        // for(auto it : rp) cout << it << " ";
-        // cout << endl;
-        // cout << "li" << endl;
-        // for(auto it : li) cout << it << " ";
-        // cout << endl;
-        // cout << "ri" << endl;
-        // for(auto it : ri) cout << it << " ";
-        // cout << endl;
-
         root->left = buildTree(lp,li);
         root->right = buildTree(rp,ri);
         return root;

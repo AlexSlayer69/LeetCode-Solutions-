@@ -17,9 +17,10 @@ public:
                     board[i][j]--;
                     for(int k = 0;k<3;k++){
                         for(int l = 0;l<3;l++){
-                            if(!(k == 0 && l == 0) && i+k >=0 && i+k <= n-1 
-                                && j+l >=0 && j+l <= m-1)
-                                    board[i+k][j+l]++;
+                            if(dir[k] == 0 && dir[l] == 0) continue;
+                            if(i+ dir[k] >=0 && i+dir[k] <= n-1 && j+dir[l] >=0 && 
+                            j+dir[l] <= m-1)
+                                board[i+dir[k]][j+dir[l]]++;
                         }
                     }
                 }
@@ -29,7 +30,7 @@ public:
         for(int i =0;i<n;i++){
             for(int j = 0;j<m;j++){
                 if(board[i][j] == 3) board[i][j] = 1;
-                if(board[i][j] == 2) {
+                else if(board[i][j] == 2) {
                     if(mp[{i,j}]) board[i][j] = 1;
                     else board[i][j] = 0;
                 }

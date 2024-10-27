@@ -29,8 +29,7 @@ public:
     }
 
     void insert(Node* node){
-        Node* temp;
-        temp = head->next;
+        Node* temp = head->next;
         head->next = node;
         node->prev = head;
         temp->prev = node;
@@ -52,13 +51,21 @@ public:
     }
     
     void put(int key, int value) {
-        Node* node = new Node(key,value);
-        insert(node);
-        mp[key] = node;
-        if(curr < cap) curr++;
+        if(mp.find(key) != mp.end()){
+            Node* node = mp[key];
+            node->val = value;
+            remove(node);
+            insert(node);
+        }
         else{
-            mp.erase(tail->prev->key);
-            remove(tail->prev);
+            Node* node = new Node(key,value);
+            insert(node);
+            mp[key] = node;
+            if(curr < cap) curr++;
+            else{
+                mp.erase(tail->prev->key);
+                remove(tail->prev);
+            }
         }
     }
 };

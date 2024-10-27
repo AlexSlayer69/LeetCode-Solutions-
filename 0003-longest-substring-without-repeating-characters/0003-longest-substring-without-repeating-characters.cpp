@@ -12,7 +12,6 @@ public:
                 }
             }
             st.insert(s[i]);
-            //cout << i << " " << j << endl;
             ans = max(ans,i-j+1);
         }
         return ans;

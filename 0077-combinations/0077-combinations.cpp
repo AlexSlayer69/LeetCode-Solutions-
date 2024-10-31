@@ -16,7 +16,7 @@ public:
     vector<vector<int>> combine(int n, int k) {
         vector<vector<int>> ans;
         vector<int> temp;
-        backtrack(1,temp,ans,n,k)
+        backtrack(1,temp,ans,n,k);
         return ans;
     }
 };

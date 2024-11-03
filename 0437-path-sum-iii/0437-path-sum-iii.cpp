@@ -12,7 +12,7 @@
 class Solution {
 public:
 
-    void solve(TreeNode* node ,int curr, int target, 
+    void solve(TreeNode* node ,long curr, int target, 
               unordered_map<long,int> &dp,int &count){
         if(!node) return;
         curr += node->val;

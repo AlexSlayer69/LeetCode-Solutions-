@@ -14,10 +14,10 @@ public:
             if(nums[j] >= nums[j-1]) two--;
             else break;
         }
-        cout << one << " " << two << endl;
+        //cout << one << " " << two << endl;
         int l = *min_element(nums.begin()+one,nums.begin()+two+1); //- nums.begin();
         int r = *max_element(nums.begin()+one,nums.begin()+two+1); //- nums.begin();
-        cout << l << " " << r << endl;
+        //cout << l << " " << r << endl;
         while(one != 0 && nums[one-1] > l) one--;
         while(two != n-1 && nums[two+1] < r) two++;
         return two-one+1;

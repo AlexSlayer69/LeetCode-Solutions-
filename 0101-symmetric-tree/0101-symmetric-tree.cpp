@@ -18,23 +18,6 @@ public:
         invert(root->left);
         invert(root->right);
         return;
-        // if(!root->left && !root->right) return;
-        // if(!root->left){
-        //     root->left = root->right;
-        //     root->right = NULL;
-        //     invert(root->left);
-        //     return;
-        // }
-        // if(!root->right){
-        //     root->right = root->left;
-        //     root->left = NULL;
-        //     invert(root->right);
-        //     return;
-        // }
-        // swap(root->left->val,root->right->val);
-        // invert(root->left);
-        // invert(root->right);
-        // return;
     }
     bool same(TreeNode *l , TreeNode* r){
         if(!l && r || l && !r) return false;

@@ -13,8 +13,8 @@ class BSTIterator {
 public:
     stack<TreeNode*> anc;
     BSTIterator(TreeNode* root) {
-        while(root->left){
-            anc.push(root);
+        if(root) anc.push(root);
+        while(root && root->left){
             anc.push(root->left);
             root = root->left;
         }

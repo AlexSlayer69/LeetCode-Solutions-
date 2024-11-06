@@ -5,7 +5,6 @@ public:
         sort(nums.begin(),nums.end());
         vector<vector<int>> dp(n,vector<int>());
         for(int i =0;i < n;i++) dp[i].push_back(nums[i]);
-        //dp[n-1].push_back(nums[n-1]);
         int ind = n-1,maxi = 1;
         for(int i = n-2;i>=0;i--){
             for(int j = i+1;j<n;j++){

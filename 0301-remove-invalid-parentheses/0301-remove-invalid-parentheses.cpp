@@ -4,9 +4,9 @@ public:
     void backtrack(int i,string &temp,int open,int close,
                    int o,int c,string &s,unordered_set<string> &ans,int &len){
         
-        if(i == s.length()) {
-            cout << temp << " " << open << " " << close << " " << o << " " << c << " " << endl;
-        }
+        // if(i == s.length()) {
+        //     cout << temp << " " << open << " " << close << " " << o << " " << c << " " << endl;
+        // }
         if(open < 0 || close < 0) return;
         if(o < c) return;
         if(i == s.length() && o != c) return;

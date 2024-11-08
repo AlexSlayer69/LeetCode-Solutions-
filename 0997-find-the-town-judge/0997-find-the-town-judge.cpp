@@ -9,7 +9,6 @@ public:
         }
         for(int i = 1;i<=n;i++){
             if(t[i] == 0 && mp[i].size() == n-1){
-                cout << i << endl;
                 return i;
             }
         }

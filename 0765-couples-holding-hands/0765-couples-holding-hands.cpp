@@ -4,7 +4,6 @@ public:
         int n = row.size();
         unordered_map<int,int> mp;
         for(int i = 0; i < n; i++) mp[row[i]] = i;
-
         int ans = 0;
         for(int i = 0; i < n - 1; i += 2){
             int partner = (row[i]%2==0 ? row[i]+1 : row[i]-1);

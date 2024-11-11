@@ -2,10 +2,7 @@ class Solution {
 public:
     int wiggleMaxLength(vector<int>& nums) {
         int n = nums.size();
-
         vector<vector<int>> dp(n,vector<int>(2,1));
-        dp[n-1][0] = 1; // down
-        dp[n-1][1] = 1; // up
         for(int i = n-2;i>=0;i--){
             for(int j = i+1;j<n;j++){
                 if(nums[i] - nums[j] > 0){

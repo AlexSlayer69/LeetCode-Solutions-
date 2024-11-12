@@ -33,7 +33,7 @@ public:
     
     void addAtTail(int val) {
         Node* node = new Node(val);
-        if (!head) head = newNode;
+        if (!head) head = node;
         else{
             Node* temp = head;
             while (temp->next) temp = temp->next;

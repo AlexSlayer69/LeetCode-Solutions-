@@ -1,4 +1,4 @@
-<h2><a href="https://leetcode.com/problems/integer-replacement">397. Integer Replacement</a></h2><h3>Medium</h3><hr><p>Given a positive integer <code>n</code>,&nbsp;you can apply one of the following&nbsp;operations:</p>
+<h2><a href="https://leetcode.com/problems/integer-replacement/?envType=problem-list-v2&envId=dynamic-programming">397. Integer Replacement</a></h2><h3>Medium</h3><hr><p>Given a positive integer <code>n</code>,&nbsp;you can apply one of the following&nbsp;operations:</p>
 
 <ol>
 	<li>If <code>n</code> is even, replace <code>n</code> with <code>n / 2</code>.</li>

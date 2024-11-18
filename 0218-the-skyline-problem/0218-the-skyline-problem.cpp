@@ -16,7 +16,7 @@ public:
             while(!pq.empty() && pq.top().first == el){
                 int ind = pq.top().second;
                 if(indexes.count(ind) == 1){
-                    heights.erase(buildings[ind][2]);
+                    heights.erase(heights.find(buildings[ind][2]));
                 }
                 else{
                     indexes.insert(ind);

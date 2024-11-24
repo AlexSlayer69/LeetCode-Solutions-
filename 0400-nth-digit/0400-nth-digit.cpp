@@ -1,7 +1,7 @@
 class Solution {
 public:
     int findNthDigit(int n) {
-        long long digits = 1;
+        int digits = 1;
         long long one = 1;
         long long nine = 9;
         while(n > digits*nine){

@@ -1,38 +1,17 @@
 class Solution {
 public:
     string predictPartyVictory(string senate) {
-        int n = senate.size();
-        int Rcount = 0,Dcount = 0;
-        for(auto it : senate) {
-            if(it == 'R') Rcount++;
-            else Dcount++;
+        queue<int> q1, q2;
+        int n = senate.length();
+        
+        for(int i = 0; i<n; i++)
+            (senate[i] == 'R') ? q1.push(i) : q2.push(i);
+        
+        while(!q1.empty() && !q2.empty()){
+            int r_index = q1.front(), d_index = q2.front();
+            q1.pop(), q2.pop();
+            (r_index < d_index) ? q1.push(r_index + n) : q2.push(d_index + n);
         }
-        vector<bool> vis(senate.size(),false);
-        int r = n-1,d = n-1;
-        for(int k = 0;k<n;k++){
-            //cout << vis[k] << endl;
-            if(vis[k]) continue;
-            else{
-                if(senate[k] == 'R') {
-                    while(d >= 0 && senate[d] != 'D') d--;
-                    if(d >= 0){
-                        vis[d] = true;
-                        d--;
-                        Dcount--;
-                    }
-                    if(Rcount > Dcount) return "Radiant";
-                }
-                else{
-                    while(r >= 0 && senate[r] != 'R') r--;
-                    if(r >= 0){
-                        vis[r] = true;
-                        r--;
-                        Rcount--;
-                    }
-                    if(Rcount < Dcount) return "Dire";
-                }
-            }
-        }
-        return (Rcount > Dcount) ? "Radiant" : "Dire";
+        return (q1.size() > q2.size()) ? "Radiant" : "Dire";
     }
 };

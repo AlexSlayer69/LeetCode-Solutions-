@@ -1,34 +1,33 @@
 /**
  * Definition for a binary tree node.
- * public class TreeNode {
+ * struct TreeNode {
  *     int val;
- *     TreeNode left;
- *     TreeNode right;
- *     TreeNode() {}
- *     TreeNode(int val) { this.val = val; }
- *     TreeNode(int val, TreeNode left, TreeNode right) {
- *         this.val = val;
- *         this.left = left;
- *         this.right = right;
- *     }
- * }
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
  */
 class Solution {
-    public int maxAncestorDiff(TreeNode root) {
-        int minv= root.val;
-        int maxv = root.val;
+public:
+    int maxAncestorDiff(TreeNode* root) {
+        int minv = root->val;
+        int maxv = root->val;
         return findMax(root, minv, maxv);
     }
-    public int findMax(TreeNode root, int minv, int maxv){
-        if(root == null){
-            return Math.abs(minv - maxv);
+
+private:
+    int findMax(TreeNode* root, int minv, int maxv) {
+        if (root == NULL) {
+            return abs(minv - maxv);
         }
-        minv= Math.min(minv , root.val);
-        maxv = Math.max(maxv , root.val);
+        minv = std::min(minv, root->val);
+        maxv = std::max(maxv, root->val);
 
-        int l = findMax(root.left,minv, maxv);
-        int r= findMax(root.right, minv , maxv);
+        int l = findMax(root->left, minv, maxv);
+        int r = findMax(root->right, minv, maxv);
 
-        return Math.max(l,r);
+        return std::max(l, r);
     }
-}
+};

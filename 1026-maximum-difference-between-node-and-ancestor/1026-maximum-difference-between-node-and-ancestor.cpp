@@ -22,12 +22,12 @@ private:
         if (root == NULL) {
             return abs(minv - maxv);
         }
-        minv = std::min(minv, root->val);
-        maxv = std::max(maxv, root->val);
+        minv = min(minv, root->val);
+        maxv = max(maxv, root->val);
 
         int l = findMax(root->left, minv, maxv);
         int r = findMax(root->right, minv, maxv);
 
-        return std::max(l, r);
+        return max(l, r);
     }
 };
